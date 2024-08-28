@@ -1,0 +1,4 @@
+repository "Dont be a square@dkujoo@cloud"
+  path "/"
+    br "/main"
+    co "/main"

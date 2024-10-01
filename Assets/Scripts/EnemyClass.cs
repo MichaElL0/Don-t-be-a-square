@@ -12,16 +12,6 @@ public class EnemyClass : MonoBehaviour
 
     public static event Action OnClickEnemy;
 
-	private void OnEnable()
-	{
-        //OnClickEnemy += miniGameScript.EnterMiniGame;
-	}
-
-	private void OnDisable()
-	{
-        //OnClickEnemy -= miniGameScript.EnterMiniGame;
-	}
-
 	// Start is called before the first frame update
 	void Start()
     {
@@ -37,7 +27,11 @@ public class EnemyClass : MonoBehaviour
 
 	private void OnMouseDown()
 	{
-        OnClickEnemy?.Invoke();
+        if(!MiniGame.isInGame)
+        {
+			OnClickEnemy?.Invoke();
+		}
+       
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)

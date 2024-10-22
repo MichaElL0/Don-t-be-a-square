@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class EnemyClass : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class EnemyClass : MonoBehaviour
 	{
 		transform.DetachChildren();
 		particleSystemOBJ.Play();
+		CameraShaker.Instance.ShakeOnce(3f, 3f, .2f, .75f);
 		Destroy(gameObject);
 	}
 

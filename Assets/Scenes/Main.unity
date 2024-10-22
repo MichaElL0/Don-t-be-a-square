@@ -518,11 +518,11 @@ Transform:
   m_GameObject: {fileID: 315872794}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1148549, y: -0.89102167, z: -0.33499742}
+  m_LocalPosition: {x: -1.1148549, y: -0.89102167, z: 9.665003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 491837515}
+  m_Father: {fileID: 967933552}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &315872796
 MonoBehaviour:
@@ -544,7 +544,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Enemy kill
-    clip: {fileID: 8300000, guid: c11ae394980f2ba47bcd9a80ceca7c58, type: 3}
+    clip: {fileID: 8300000, guid: 06b3ae8a452c1aa49857bfff596b9438, type: 3}
     volume: 1
     pitch: 0.9
     loop: 0
@@ -564,6 +564,12 @@ MonoBehaviour:
   - name: Hit
     clip: {fileID: 8300000, guid: 431c9f85c9f93224aa141b16abbe3877, type: 3}
     volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Correct
+    clip: {fileID: 8300000, guid: 53c8dae5518f37644b6052e28d09e6c0, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -740,7 +746,6 @@ Transform:
   m_Children:
   - {fileID: 1378458866}
   - {fileID: 1128949446}
-  - {fileID: 315872795}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &492327666
@@ -800,6 +805,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -925,6 +931,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
+  DefaultRotInfluence: {x: 1, y: 1, z: 1}
+  RestPositionOffset: {x: 0, y: 0, z: -0.5}
+  RestRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &534479242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1917,6 +1939,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 315872795}
   - {fileID: 846554954}
   - {fileID: 1286778501}
   - {fileID: 1143800580}

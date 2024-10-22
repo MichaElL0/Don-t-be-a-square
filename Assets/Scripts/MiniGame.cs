@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using EZCameraShake;
 
 public class MiniGame : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class MiniGame : MonoBehaviour
 	private string[] letters = { "W", "S", "A", "D" };
 	public string[] letterCombination = new string[4];
 	private int currentIndex = 0;
+	float pitch = 1;
 
 	private void OnEnable()
 	{
@@ -40,15 +42,22 @@ public class MiniGame : MonoBehaviour
 		{
 			if (currentIndex < letterCombination.Length)
 			{
+				
 				if (Input.GetKeyDown(letterCombination[currentIndex].ToLower()))
 				{
+					
 					print("THIS! : " + letterCombination[currentIndex]);
+					FindObjectOfType<AudioManager>().Play("Correct");
+					FindObjectOfType<AudioManager>().Pitch("Correct", pitch);
+					CameraShaker.Instance.ShakeOnce(2, 2, 0.1f, 0.3f);
+					pitch += 0.1f;
 					currentIndex++;
 				}
 			}
 			else
 			{
 				print("You've done it!");
+				pitch = 1;
 				QuitMiniGame(nowEnemy);
 			}
 		}

@@ -43,6 +43,7 @@ public class EnemyClass : MonoBehaviour
 	{
 		if (!MiniGame.isInGame)
 		{
+			FindObjectOfType<AudioManager>().Play("Enemy click");
 			OnClickEnemy?.Invoke(this.gameObject);
 		}
 	}
@@ -60,7 +61,7 @@ public class EnemyClass : MonoBehaviour
 	{
 		transform.DetachChildren();
 		particleSystemOBJ.Play();
-		CameraShaker.Instance.ShakeOnce(3f, 3f, .2f, .75f);
+		CameraShaker.Instance.ShakeOnce(3f, 3f, .2f, 1f);
 		Destroy(gameObject);
 	}
 

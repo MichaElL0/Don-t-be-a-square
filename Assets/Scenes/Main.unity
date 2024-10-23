@@ -544,7 +544,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Enemy kill
-    clip: {fileID: 8300000, guid: 06b3ae8a452c1aa49857bfff596b9438, type: 3}
+    clip: {fileID: 8300000, guid: aeb8b781c823a5d48b32182487a5cf8f, type: 3}
     volume: 1
     pitch: 0.9
     loop: 0
@@ -570,7 +570,13 @@ MonoBehaviour:
   - name: Correct
     clip: {fileID: 8300000, guid: 53c8dae5518f37644b6052e28d09e6c0, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 0.8
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy click
+    clip: {fileID: 8300000, guid: 999135d8b7e0e424ab3aba2bf3799917, type: 3}
+    volume: 1
+    pitch: 0.8
     loop: 0
     source: {fileID: 0}
   audioMixer: {fileID: 24300002, guid: 12c2133495cb725478f8dd4874a2e528, type: 2}

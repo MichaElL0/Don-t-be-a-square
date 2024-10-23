@@ -21,7 +21,13 @@ public class MiniGame : MonoBehaviour
 	private string[] letters = { "W", "S", "A", "D" };
 	public string[] letterCombination = new string[4];
 	private int currentIndex = 0;
-	float pitch = 1;
+	float defaultPitch = 0.7f;//Random.Range(0.8f, 0.9f);
+	float pitch;
+
+	private void Start()
+	{
+		pitch = defaultPitch;
+	}
 
 	private void OnEnable()
 	{
@@ -57,7 +63,7 @@ public class MiniGame : MonoBehaviour
 			else
 			{
 				print("You've done it!");
-				pitch = 1;
+				pitch = defaultPitch;
 				QuitMiniGame(nowEnemy);
 			}
 		}

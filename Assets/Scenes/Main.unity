@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 76721021}
   - component: {fileID: 76721023}
   - component: {fileID: 76721022}
+  - component: {fileID: 76721024}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -387,6 +388,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76721020}
   m_CullTransparentMesh: 1
+--- !u!114 &76721024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76721020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba99a7bba20d474ca0b6a1ec25943ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 76721024}
+        m_TargetAssemblyTypeName: Effects, Assembly-CSharp
+        m_MethodName: SwayEffect
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &191220076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,8 +1339,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -755, y: -25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -754.2092, y: -32.116974}
+  m_SizeDelta: {x: 222.4261, y: 64.2339}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &646955671
 MonoBehaviour:
@@ -1384,11 +1412,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 646955670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.50794, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &690878176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1652,11 +1680,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 555664072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 100, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &762736313
 MonoBehaviour:
   m_ObjectHideFlags: 0

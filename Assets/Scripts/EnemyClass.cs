@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
+using Random = UnityEngine.Random;
 
 public class EnemyClass : MonoBehaviour
 {
@@ -69,6 +70,7 @@ public class EnemyClass : MonoBehaviour
 	{
 		if (enemy == gameObject)
 		{
+			FindObjectOfType<AudioManager>().Pitch("Enemy kill", Random.Range(0.7f, 0.9f));
 			FindObjectOfType<AudioManager>().Play("Enemy kill");
 			EnemySpawner.enemiesKilled++;
 			EnemySpawner.enemiesSpawnedList.Remove(enemy);

@@ -21,7 +21,7 @@ public class MiniGame : MonoBehaviour
 	private string[] letters = { "W", "S", "A", "D" };
 	public string[] letterCombination = new string[4];
 	private int currentIndex = 0;
-	float defaultPitch = 0.7f;//Random.Range(0.8f, 0.9f);
+	float defaultPitch = 0.7f;
 	float pitch;
 
 	private void Start()
@@ -51,18 +51,17 @@ public class MiniGame : MonoBehaviour
 				
 				if (Input.GetKeyDown(letterCombination[currentIndex].ToLower()))
 				{
-					
-					print("THIS! : " + letterCombination[currentIndex]);
 					FindObjectOfType<AudioManager>().Play("Correct");
 					FindObjectOfType<AudioManager>().Pitch("Correct", pitch);
+
 					CameraShaker.Instance.ShakeOnce(2, 2, 0.1f, 0.3f);
 					pitch += 0.1f;
+
 					currentIndex++;
 				}
 			}
 			else
 			{
-				print("You've done it!");
 				pitch = defaultPitch;
 				QuitMiniGame(nowEnemy);
 			}

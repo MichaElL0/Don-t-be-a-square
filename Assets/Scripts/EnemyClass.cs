@@ -56,9 +56,18 @@ public class EnemyClass : MonoBehaviour
 		{
 			target.GetComponent<PlayerScript>().TakeDamage();
 
-			EnemySpawner.enemiesKilled++;
-			EnemySpawner.enemiesSpawnedList.Remove(this.gameObject);
+			RemoveEnemy();
+			DestroyEnemy();
+		}
+	}
 
+	void KillEnemy(GameObject enemy)
+	{
+		if (enemy == gameObject)
+		{
+			FindObjectOfType<AudioManager>().Pitch("Enemy kill", Random.Range(0.7f, 0.9f));
+			FindObjectOfType<AudioManager>().Play("Enemy kill");
+			RemoveEnemy();
 			DestroyEnemy();
 		}
 	}
@@ -71,17 +80,10 @@ public class EnemyClass : MonoBehaviour
 		Destroy(gameObject);
 	}
 
-	void KillEnemy(GameObject enemy)
+	void RemoveEnemy()
 	{
-		if (enemy == gameObject)
-		{
-			FindObjectOfType<AudioManager>().Pitch("Enemy kill", Random.Range(0.7f, 0.9f));
-			FindObjectOfType<AudioManager>().Play("Enemy kill");
-			EnemySpawner.enemiesKilled++;
-			EnemySpawner.enemiesSpawnedList.Remove(enemy);
-
-			DestroyEnemy();
-		}
+		EnemySpawner.enemiesKilled++;
+		EnemySpawner.enemiesSpawnedList.Remove(this.gameObject);
 	}
 }
 

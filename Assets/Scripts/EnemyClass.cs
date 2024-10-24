@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
 using Random = UnityEngine.Random;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class EnemyClass : MonoBehaviour
 {
@@ -54,6 +55,10 @@ public class EnemyClass : MonoBehaviour
 		if (collision.CompareTag("Player"))
 		{
 			target.GetComponent<PlayerScript>().TakeDamage();
+
+			EnemySpawner.enemiesKilled++;
+			EnemySpawner.enemiesSpawnedList.Remove(this.gameObject);
+
 			DestroyEnemy();
 		}
 	}

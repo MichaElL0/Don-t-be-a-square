@@ -49,7 +49,6 @@ public class MiniGame : MonoBehaviour
 		{
 			if (currentIndex < letterCombination.Length)
 			{
-				
 				if (Input.GetKeyDown(letterCombination[currentIndex].ToLower()))
 				{
 					FindObjectOfType<AudioManager>().Play("Correct");
@@ -59,6 +58,20 @@ public class MiniGame : MonoBehaviour
 					pitch += 0.1f;
 
 					currentIndex++;
+				}
+				else if (Input.anyKeyDown && !input.IsMouseClick())
+				{
+					//Wrong KEY
+					if(Time.timeScale < 1f)
+					{
+						Time.timeScale += 0.07f;
+						FindObjectOfType<AudioManager>().Play("Wrong");
+					}
+					else
+					{
+						Time.timeScale = 1f;
+					}
+					
 				}
 			}
 			else

@@ -607,6 +607,12 @@ MonoBehaviour:
     pitch: 0.8
     loop: 0
     source: {fileID: 0}
+  - name: Wrong
+    clip: {fileID: 8300000, guid: 5ec73d3d6d17c3941b60a819f370303f, type: 3}
+    volume: 1
+    pitch: 0.8
+    loop: 0
+    source: {fileID: 0}
   audioMixer: {fileID: 24300002, guid: 12c2133495cb725478f8dd4874a2e528, type: 2}
 --- !u!1 &365001232
 GameObject:

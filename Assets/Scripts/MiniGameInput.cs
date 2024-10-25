@@ -24,4 +24,9 @@ public class MiniGameInput
 		return Input.GetKeyDown(KeyCode.D);
 	}
 
+	public bool IsMouseClick()
+	{
+		return Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2);
+	}
+
 }

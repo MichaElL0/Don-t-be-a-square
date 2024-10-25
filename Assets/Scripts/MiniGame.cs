@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using EZCameraShake;
+using System.Linq;
 
 public class MiniGame : MonoBehaviour
 {
@@ -106,10 +107,59 @@ public class MiniGame : MonoBehaviour
 	void GenerateRandomLetters()
 	{
 		currentIndex = 0;
+		int wCount = 0;
+		int sCount = 0;
+		int aCount = 0;
+		int dCount = 0;
 		for (int i = 0; i < 4; i++)
 		{
+			bool letterAssigned = false;
 			textLetters[i].text = letters[Random.Range(0, 4)];
+			while (!letterAssigned)
+			{
+				string randomLetter = letters[Random.Range(0, 4)];
+
+				switch (randomLetter)
+				{
+					case "W":
+						if (wCount < 2)
+						{
+							wCount++;
+							textLetters[i].text = "W";
+							letterAssigned = true;
+						}
+						break;
+					case "S":
+						if (sCount < 2)
+						{
+							sCount++;
+							textLetters[i].text = "S";
+							letterAssigned = true;
+						}
+						break;
+					case "A":
+						if (aCount < 2)
+						{
+							aCount++;
+							textLetters[i].text = "A";
+							letterAssigned = true;
+						}
+						break;
+					case "D":
+						if (dCount < 2)
+						{
+							dCount++;
+							textLetters[i].text = "D";
+							letterAssigned = true;
+						}
+						break;
+				}
+			}
+
 			letterCombination[i] = textLetters[i].text;
+			
 		}
 	}
 }
+
+

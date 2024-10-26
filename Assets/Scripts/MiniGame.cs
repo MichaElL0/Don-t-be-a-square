@@ -54,6 +54,8 @@ public class MiniGame : MonoBehaviour
 					FindObjectOfType<AudioManager>().Play("Correct");
 					FindObjectOfType<AudioManager>().Pitch("Correct", pitch);
 
+					textLetters[currentIndex].GetComponent<Animator>().SetTrigger("Correct");
+
 					CameraShaker.Instance.ShakeOnce(2, 2, 0.1f, 0.3f);
 					pitch += 0.1f;
 
@@ -113,6 +115,11 @@ public class MiniGame : MonoBehaviour
 
 		OnMiniGameQuit?.Invoke(enemy);
 		nowEnemy = null;
+
+		foreach (var letter in textLetters)
+		{
+			letter.GetComponent<Animator>().SetTrigger("Reset");
+		}
 
 		Debug.LogError("Quit mini game!!!");
 	}

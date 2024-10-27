@@ -25,6 +25,8 @@ public class MiniGame : MonoBehaviour
 	float defaultPitch = 0.7f;
 	float pitch;
 
+	public GameObject letterParticle;
+
 	private void Start()
 	{
 		pitch = defaultPitch;
@@ -55,6 +57,8 @@ public class MiniGame : MonoBehaviour
 					FindObjectOfType<AudioManager>().Pitch("Correct", pitch);
 
 					textLetters[currentIndex].GetComponent<Animator>().SetTrigger("Correct");
+
+					Instantiate(letterParticle, textLetters[currentIndex].gameObject.transform.position, Quaternion.identity);
 
 					CameraShaker.Instance.ShakeOnce(2, 2, 0.1f, 0.3f);
 					pitch += 0.1f;

@@ -86,15 +86,3 @@ public class EnemyClass : MonoBehaviour
 		EnemySpawner.enemiesSpawnedList.Remove(this.gameObject);
 	}
 }
-
-
-
-//void KillEnemy(GameObject enemy)
-//{
-//	FindObjectOfType<AudioManager>().Play("Enemy kill");
-//	EnemySpawner.enemiesKilled++;
-//	EnemySpawner.enemiesSpawnedList.Remove(enemy);
-//	transform.DetachChildren();
-//	particleSystemOBJ.Play();
-//	Destroy(this.gameObject);
-//}

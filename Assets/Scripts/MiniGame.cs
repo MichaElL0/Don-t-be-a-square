@@ -82,8 +82,8 @@ public class MiniGame : MonoBehaviour
 			}
 			else
 			{
-				pitch = defaultPitch;
 				QuitMiniGame(nowEnemy);
+				WaveSplash();
 			}
 		}
 	}
@@ -98,7 +98,6 @@ public class MiniGame : MonoBehaviour
 
 		nowEnemy = enemy;
 		isInGame = true;
-		Debug.LogError("Start mini game!!!");
 		panel.SetActive(true);
 		Time.timeScale = 0.4f;
 
@@ -125,7 +124,7 @@ public class MiniGame : MonoBehaviour
 			letter.GetComponent<Animator>().SetTrigger("Reset");
 		}
 
-		Debug.LogError("Quit mini game!!!");
+		pitch = defaultPitch;
 	}
 
 	void GenerateRandomLetters()
@@ -182,6 +181,16 @@ public class MiniGame : MonoBehaviour
 
 			letterCombination[i] = textLetters[i].text;
 			
+		}
+	}
+
+	public void WaveSplash()
+	{
+		foreach(var enemy in EnemySpawner.enemiesSpawnedList)
+		{
+			print("Add force to this enemy: " + enemy.name);
+			enemy.GetComponent<Rigidbody2D>().AddForce(transform.right, ForceMode2D.Impulse);
+			//Works, but in wrong direction
 		}
 	}
 }

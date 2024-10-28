@@ -16,7 +16,9 @@ public class PlayerScript : MonoBehaviour
         OnPlayerDamage?.Invoke(this.gameObject);
         playerLives--;
         livesUI.text = "LIVES: " + "O O O".Substring(0, playerLives+1);
+
 		FindObjectOfType<AudioManager>().Play("Hit");
+
 		if (playerLives <= 0)
         {
             GameManager.instance._waveState = GameManager.WaveState.End;

@@ -1727,6 +1727,10 @@ MonoBehaviour:
   - {fileID: 1184633848640902149, guid: f322afc47e4f96a43b392159f8973392, type: 3}
   - {fileID: 5405123130134259579, guid: 307ec9734d47aaf4ab5b184fd226a786, type: 3}
   timeSinceWaveStarted: 0
+  wave1SpawnTime: 1
+  wave2SpawnTime: 0.95
+  wave3SpawnTime: 0.9
+  wave4SpawnTime: 0.95
 --- !u!1 &1221955010
 GameObject:
   m_ObjectHideFlags: 0

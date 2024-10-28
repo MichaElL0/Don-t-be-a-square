@@ -15,21 +15,27 @@ public class EnemySpawner : MonoBehaviour
 	[HideInInspector] public float timeSinceWaveStarted = 0;
 	bool killedAllEnemies = false;
 
+	[Header("Wave stats")]
+	[SerializeField] float wave1SpawnTime;
+	[SerializeField] float wave2SpawnTime;
+	[SerializeField] float wave3SpawnTime;
+	[SerializeField] float wave4SpawnTime;
+
 	public void WaveStateSpawn(GameManager.Wave waveState)
 	{
 		switch (waveState)
 		{
 			case GameManager.Wave.Wave1:
-				StartSpawningWave(0, false, 1f, Wave.Wave2);
+				StartSpawningWave(0, false, wave1SpawnTime, Wave.Wave2);
 				break;
 			case GameManager.Wave.Wave2:
-				StartSpawningWave(1, false, 0.9f, Wave.Wave3);
+				StartSpawningWave(1, false, wave2SpawnTime, Wave.Wave3);
 				break;
 			case GameManager.Wave.Wave3:
-				StartSpawningWave(2, false, 0.8f, Wave.Wave4);
+				StartSpawningWave(2, false, wave3SpawnTime, Wave.Wave4);
 				break;
 			case GameManager.Wave.Wave4:
-				StartSpawningWave(0, true, 0.9f, Wave.Wave4);
+				StartSpawningWave(0, true, wave4SpawnTime, Wave.Wave4);
 				GameManager.instance.isDoneWithLastWave = true;
 				break;
 			default:

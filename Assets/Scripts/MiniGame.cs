@@ -51,6 +51,7 @@ public class MiniGame : MonoBehaviour
 		{
 			if (currentIndex < letterCombination.Length)
 			{
+				
 				if (Input.GetKeyDown(letterCombination[currentIndex].ToLower()))
 				{
 					FindObjectOfType<AudioManager>().Play("Correct");
@@ -65,10 +66,12 @@ public class MiniGame : MonoBehaviour
 
 					currentIndex++;
 				}
+
 				else if (Input.anyKeyDown && !input.IsMouseClick())
 				{
 					//Wrong KEY
-					if(Time.timeScale < 1f)
+					
+					if(Time.timeScale <= 1f)
 					{
 						Time.timeScale += 0.07f;
 						FindObjectOfType<AudioManager>().Play("Wrong");
@@ -76,24 +79,24 @@ public class MiniGame : MonoBehaviour
 					else
 					{
 						Time.timeScale = 1f;
-					}
+					}	
 					
 				}
 			}
 			else
 			{
 				QuitMiniGame(nowEnemy);
-				WaveSplash();
+				//WaveSplash();
 			}
 		}
 	}
 
 	public void EnterMiniGame(GameObject enemy)
 	{
-		if (enemy == null)
+		if (enemy is null)
 		{
 			Debug.LogWarning("Enemy is already destroyed.");
-			return; 
+			return;
 		}
 
 		nowEnemy = enemy;
@@ -180,13 +183,13 @@ public class MiniGame : MonoBehaviour
 			}
 
 			letterCombination[i] = textLetters[i].text;
-			
+
 		}
 	}
 
 	public void WaveSplash()
 	{
-		foreach(var enemy in EnemySpawner.enemiesSpawnedList)
+		foreach (var enemy in EnemySpawner.enemiesSpawnedList)
 		{
 			print("Add force to this enemy: " + enemy.name);
 			enemy.GetComponent<Rigidbody2D>().AddForce(transform.right, ForceMode2D.Impulse);

@@ -1424,6 +1424,7 @@ MonoBehaviour:
   - 
   - 
   letterParticle: {fileID: 4513585051333207209, guid: 6bb5c814694fddd4ba6c6ac9da8791b6, type: 3}
+  playerObject: {fileID: 2012494240}
 --- !u!4 &846554954
 Transform:
   m_ObjectHideFlags: 0
@@ -1728,7 +1729,7 @@ MonoBehaviour:
   - {fileID: 5405123130134259579, guid: 307ec9734d47aaf4ab5b184fd226a786, type: 3}
   timeSinceWaveStarted: 0
   wave1SpawnTime: 1
-  wave2SpawnTime: 0.95
+  wave2SpawnTime: 1
   wave3SpawnTime: 0.9
   wave4SpawnTime: 0.95
 --- !u!1 &1221955010

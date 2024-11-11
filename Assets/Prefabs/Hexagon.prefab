@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2392043133587587985}
   - component: {fileID: 8280411059770737811}
   - component: {fileID: 4816438258198968611}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hexagon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,6 +209,10 @@ PrefabInstance:
     - target: {fileID: 4655599031188328536, guid: ca1f347317e877f49810735bd7d6bc2a, type: 3}
       propertyPath: m_Name
       value: DestructionEnemyParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655599031188328536, guid: ca1f347317e877f49810735bd7d6bc2a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

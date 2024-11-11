@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 295053543157293029}
   - component: {fileID: -5497673712094450632}
   - component: {fileID: 1379759524904192621}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3535065a7218764392ad5d7f044c70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   swayAmmount: 1
 --- !u!60 &1379759524904192621
 PolygonCollider2D:
@@ -205,6 +205,10 @@ PrefabInstance:
     - target: {fileID: 4655599031188328536, guid: ca1f347317e877f49810735bd7d6bc2a, type: 3}
       propertyPath: m_Name
       value: DestructionEnemyParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655599031188328536, guid: ca1f347317e877f49810735bd7d6bc2a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

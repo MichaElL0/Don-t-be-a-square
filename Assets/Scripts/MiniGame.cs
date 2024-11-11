@@ -27,6 +27,13 @@ public class MiniGame : MonoBehaviour
 
 	public GameObject letterParticle;
 
+	public GameObject playerObject;
+
+	public LayerMask enemyMask;
+	public float waveBlastRadius = 5f;
+
+
+
 	private void Start()
 	{
 		pitch = defaultPitch;
@@ -86,7 +93,7 @@ public class MiniGame : MonoBehaviour
 			else
 			{
 				QuitMiniGame(nowEnemy);
-				//WaveSplash();
+				StartCoroutine(WaveSplash());
 			}
 		}
 	}
@@ -187,13 +194,20 @@ public class MiniGame : MonoBehaviour
 		}
 	}
 
-	public void WaveSplash()
+	public IEnumerator WaveSplash()
 	{
 		foreach (var enemy in EnemySpawner.enemiesSpawnedList)
 		{
+			Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
+
 			print("Add force to this enemy: " + enemy.name);
-			enemy.GetComponent<Rigidbody2D>().AddForce(transform.right, ForceMode2D.Impulse);
-			//Works, but in wrong direction
+
+			Vector2 pushDirection = (enemy.transform.position - playerObject.transform.position).normalized;
+			enemyRb.AddForce(pushDirection * 2, ForceMode2D.Impulse);
+
+			yield return new WaitForSeconds(0.3f);  
+			enemyRb.velocity = Vector2.zero;
+			//yield return null;
 		}
 	}
 }

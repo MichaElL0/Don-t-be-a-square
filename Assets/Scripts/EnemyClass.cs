@@ -5,6 +5,7 @@ using UnityEngine;
 using EZCameraShake;
 using Random = UnityEngine.Random;
 using static UnityEngine.EventSystems.EventTrigger;
+using UnityEditor.ShaderGraph.Internal;
 
 public class EnemyClass : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class EnemyClass : MonoBehaviour
 	public float swayAmmount = 1;
 	GameObject target;
 	ParticleSystem particleSystemOBJ;
+	Rigidbody2D rb;
 
 	public static event Action<GameObject> OnClickEnemy;
 
@@ -25,6 +27,11 @@ public class EnemyClass : MonoBehaviour
 		MiniGame.OnMiniGameQuit -= KillEnemy;
 	}
 
+	private void Awake()
+	{
+		rb = GetComponent<Rigidbody2D>();
+	}
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -32,13 +39,26 @@ public class EnemyClass : MonoBehaviour
 		particleSystemOBJ = GetComponentInChildren<ParticleSystem>();
 	}
 
+	private void Update()
+	{
+		Vector3 direction = transform.InverseTransformPoint(target.transform.position);
+		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+		this.transform.Rotate(0, 0, angle);
+
+	}
+
 	// Update is called once per frame
-	void Update()
+	void FixedUpdate()
 	{
 		if (target != null)
 		{
-			transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+			//transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+			Vector2 direction = (target.transform.position - transform.position).normalized;
+			rb.MovePosition((Vector2)transform.position + direction * speed * Time.fixedDeltaTime);
 		}
+
+
 	}
 
 	private void OnMouseDown()

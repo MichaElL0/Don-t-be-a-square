@@ -27,13 +27,6 @@ public class MiniGame : MonoBehaviour
 
 	public GameObject letterParticle;
 
-	public GameObject playerObject;
-
-	public LayerMask enemyMask;
-	public float waveBlastRadius = 5f;
-
-
-
 	private void Start()
 	{
 		pitch = defaultPitch;
@@ -93,19 +86,13 @@ public class MiniGame : MonoBehaviour
 			else
 			{
 				QuitMiniGame(nowEnemy);
-				StartCoroutine(WaveSplash());
+				WaveSplash();
 			}
 		}
 	}
 
 	public void EnterMiniGame(GameObject enemy)
 	{
-		if (enemy is null)
-		{
-			Debug.LogWarning("Enemy is already destroyed.");
-			return;
-		}
-
 		nowEnemy = enemy;
 		isInGame = true;
 		panel.SetActive(true);
@@ -116,12 +103,6 @@ public class MiniGame : MonoBehaviour
 
 	public void QuitMiniGame(GameObject enemy)
 	{
-		if (enemy == null)
-		{
-			Debug.LogWarning("Enemy is already destroyed.");
-			return;
-		}
-
 		isInGame = false;
 		panel.SetActive(false);
 		Time.timeScale = 1;
@@ -194,21 +175,19 @@ public class MiniGame : MonoBehaviour
 		}
 	}
 
-	public IEnumerator WaveSplash()
+	public void WaveSplash()
 	{
-		foreach (var enemy in EnemySpawner.enemiesSpawnedList)
-		{
-			Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
+		print("!BLAST!");
+		StartCoroutine(ApplyWaveSplashEffect());
+	}
 
-			print("Add force to this enemy: " + enemy.name);
+	private IEnumerator ApplyWaveSplashEffect()
+	{
+		Time.timeScale = 0.4f;
 
-			Vector2 pushDirection = (enemy.transform.position - playerObject.transform.position).normalized;
-			enemyRb.AddForce(pushDirection * 2, ForceMode2D.Impulse);
+		yield return new WaitForSecondsRealtime(0.7f);
 
-			yield return new WaitForSeconds(0.3f);  
-			enemyRb.velocity = Vector2.zero;
-			//yield return null;
-		}
+		Time.timeScale = 1f;
 	}
 }
 

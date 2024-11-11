@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
 	[HideInInspector] public bool isDoneWithLastWave = false;
 
+	public Wave startingWave;
+
 	private WaveState waveState;
 	public WaveState _waveState
 	{
@@ -46,9 +48,9 @@ public class GameManager : MonoBehaviour
 	public enum Wave
 	{
 		Wave1 = 8,
-		Wave2 = 10,
-		Wave3 = 12,
-		Wave4 = 15,
+		Wave2 = 9,
+		Wave3 = 11,
+		Wave4 = 13,
 	}
 
 	public enum WaveState
@@ -70,7 +72,7 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
-		wave = Wave.Wave1;
+		wave = startingWave;
 		_waveState = WaveState.Spawning;
 	}
 

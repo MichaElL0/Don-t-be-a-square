@@ -15,16 +15,21 @@ public class EnemyClass : MonoBehaviour
 	ParticleSystem particleSystemOBJ;
 	Rigidbody2D rb;
 
+	public float swayAmplitude = 0.5f; // Distance of sway
+	public float swayFrequency = 2f;
+
 	public static event Action<GameObject> OnClickEnemy;
 
 	private void OnEnable()
 	{
 		MiniGame.OnMiniGameQuit += KillEnemy;
+		//MiniGame.OnMiniGameQuit += WaveSplash;
 	}
 
 	private void OnDisable()
 	{
 		MiniGame.OnMiniGameQuit -= KillEnemy;
+		//MiniGame.OnMiniGameQuit -= WaveSplash;
 	}
 
 	private void Awake()
@@ -45,7 +50,6 @@ public class EnemyClass : MonoBehaviour
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
 
 		this.transform.Rotate(0, 0, angle);
-
 	}
 
 	// Update is called once per frame
@@ -53,12 +57,12 @@ public class EnemyClass : MonoBehaviour
 	{
 		if (target != null)
 		{
-			//transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
 			Vector2 direction = (target.transform.position - transform.position).normalized;
-			rb.MovePosition((Vector2)transform.position + direction * speed * Time.fixedDeltaTime);
+			Vector2 swayDirection = Vector2.Perpendicular(direction);
+			float swayOffset = Mathf.Sin(Time.time * swayFrequency) * swayAmplitude;
+			Vector2 moveDirection = direction * speed + swayDirection * swayOffset;
+			rb.MovePosition((Vector2)transform.position + moveDirection * speed * Time.fixedDeltaTime);
 		}
-
-
 	}
 
 	private void OnMouseDown()

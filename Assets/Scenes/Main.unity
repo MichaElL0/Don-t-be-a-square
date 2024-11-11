@@ -1424,7 +1424,6 @@ MonoBehaviour:
   - 
   - 
   letterParticle: {fileID: 4513585051333207209, guid: 6bb5c814694fddd4ba6c6ac9da8791b6, type: 3}
-  playerObject: {fileID: 2012494240}
 --- !u!4 &846554954
 Transform:
   m_ObjectHideFlags: 0
@@ -1730,8 +1729,8 @@ MonoBehaviour:
   timeSinceWaveStarted: 0
   wave1SpawnTime: 1
   wave2SpawnTime: 1
-  wave3SpawnTime: 0.9
-  wave4SpawnTime: 0.95
+  wave3SpawnTime: 1
+  wave4SpawnTime: 1
 --- !u!1 &1221955010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,6 +1928,7 @@ MonoBehaviour:
   enemySpawner: {fileID: 1143800581}
   wave: 0
   isDoneWithLastWave: 0
+  startingWave: 8
   waveCountUI: {fileID: 1266831905}
   completedMessageUI: {fileID: 76721022}
   completedMessagePanel: {fileID: 1024596386}

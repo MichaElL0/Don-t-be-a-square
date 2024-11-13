@@ -47,6 +47,11 @@ public class MiniGame : MonoBehaviour
 
 	void Update()
 	{
+		if(Time.timeScale > 1f)
+		{
+			Time.timeScale = 1f;
+		}
+
 		if (isInGame)
 		{
 			if (currentIndex < letterCombination.Length)

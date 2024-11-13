@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
 		Wave2 = 9,
 		Wave3 = 11,
 		Wave4 = 13,
+		//
 	}
 
 	public enum WaveState

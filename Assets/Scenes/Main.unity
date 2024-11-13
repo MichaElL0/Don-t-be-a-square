@@ -1929,7 +1929,7 @@ MonoBehaviour:
   wave: 0
   isDoneWithLastWave: 0
   playerScript: {fileID: 2012494245}
-  startingWave: 8
+  startingWave: 5
   waveCountUI: {fileID: 1266831905}
   completedMessageUI: {fileID: 76721022}
   completedMessagePanel: {fileID: 1024596386}
@@ -2154,7 +2154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 210.00002
+      value: 510.00006
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7667,7 +7667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -210.00002
+      value: 210.00003
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7780,7 +7780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 510.00003
+      value: -210.00003
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.y

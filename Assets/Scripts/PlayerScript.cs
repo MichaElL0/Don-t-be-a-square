@@ -1,21 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    int playerLives = 3;
+    public int playerLives = 3;
 	public TMP_Text livesUI;
 
 	public static event Action<GameObject> OnPlayerDamage;
 
-    public void TakeDamage()
+	private void Start()
+	{
+		UpdateUI();
+	}
+
+	public void TakeDamage()
     {
         OnPlayerDamage?.Invoke(this.gameObject);
         playerLives--;
-        livesUI.text = "LIVES: " + "O O O".Substring(0, playerLives+1);
+        UpdateUI();
 
 		FindObjectOfType<AudioManager>().Play("Hit");
 
@@ -24,4 +30,9 @@ public class PlayerScript : MonoBehaviour
             GameManager.instance._waveState = GameManager.WaveState.End;
         }
     }
+
+    public void UpdateUI()
+    {
+		livesUI.text = "LIVES: " + string.Concat(Enumerable.Repeat("O ", playerLives)); ;
+	}
 }

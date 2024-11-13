@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
 	[HideInInspector] public bool isDoneWithLastWave = false;
 
+	public PlayerScript playerScript;
+
 	public Wave startingWave;
 
 	private WaveState waveState;
@@ -118,6 +120,11 @@ public class GameManager : MonoBehaviour
 		//StartCoroutine(WaitToChangeState(WaveState.Waiting));
 		completedMessageUI.text = "You completed wave " + (Int32.Parse(wave.ToString().Substring(4)) - 1) + " in " + enemySpawner.timeSinceWaveStarted + "s time! " + randomCompleteMessage[Random.Range(0, randomCompleteMessage.Count)] + "\n\nReady for another wave? \r\nWave in: ";
 		completedMessagePanel.SetActive(true);
+		if(playerScript.playerLives < 3)
+		{
+			playerScript.playerLives++;
+			playerScript.UpdateUI();
+		}
 		_waveState = WaveState.Waiting;
 	}
 

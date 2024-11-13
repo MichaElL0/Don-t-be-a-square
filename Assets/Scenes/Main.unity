@@ -1728,9 +1728,9 @@ MonoBehaviour:
   - {fileID: 5405123130134259579, guid: 307ec9734d47aaf4ab5b184fd226a786, type: 3}
   timeSinceWaveStarted: 0
   wave1SpawnTime: 1
-  wave2SpawnTime: 1
-  wave3SpawnTime: 1
-  wave4SpawnTime: 1
+  wave2SpawnTime: 1.1
+  wave3SpawnTime: 1.1
+  wave4SpawnTime: 1.1
 --- !u!1 &1221955010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,6 +1928,7 @@ MonoBehaviour:
   enemySpawner: {fileID: 1143800581}
   wave: 0
   isDoneWithLastWave: 0
+  playerScript: {fileID: 2012494245}
   startingWave: 8
   waveCountUI: {fileID: 1266831905}
   completedMessageUI: {fileID: 76721022}
@@ -8192,6 +8193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71bd893ec879b240819feceec512676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLives: 3
   livesUI: {fileID: 1836750253}
 --- !u!1 &2038377049
 GameObject:

@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3535065a7218764392ad5d7f044c70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.2
+  speed: 2
   swayAmmount: 1
-  swayAmplitude: 0.7
+  swayAmplitude: 0.8
   swayFrequency: 2
 --- !u!60 &4816438258198968611
 PolygonCollider2D:

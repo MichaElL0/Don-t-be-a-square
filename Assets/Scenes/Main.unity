@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.61960787}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1977,7 +1977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 90539129738573578, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 4286414205
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_Pivot.x
@@ -2041,7 +2041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -400
+      value: -510.00003
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2154,7 +2154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 500
+      value: 210.00002
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7667,7 +7667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 200
+      value: -210.00002
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7780,7 +7780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -100
+      value: 510.00003
       objectReference: {fileID: 0}
     - target: {fileID: 6717278285146626619, guid: f8f65676c5f17a7449aed899c21b628e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8035,6 +8035,7 @@ GameObject:
   - component: {fileID: 2012494243}
   - component: {fileID: 2012494244}
   - component: {fileID: 2012494245}
+  - component: {fileID: 2012494246}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Player
@@ -8195,6 +8196,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLives: 3
   livesUI: {fileID: 1836750253}
+--- !u!114 &2012494246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012494240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba99a7bba20d474ca0b6a1ec25943ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2012494246}
+        m_TargetAssemblyTypeName: Effects, Assembly-CSharp
+        m_MethodName: SpinEffect
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2012494246}
+        m_TargetAssemblyTypeName: Effects, Assembly-CSharp
+        m_MethodName: SwayEffect
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2038377049
 GameObject:
   m_ObjectHideFlags: 0

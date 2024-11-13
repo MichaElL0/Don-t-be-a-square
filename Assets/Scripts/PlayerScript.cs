@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -27,7 +28,8 @@ public class PlayerScript : MonoBehaviour
 
 		if (playerLives <= 0)
         {
-            GameManager.instance._waveState = GameManager.WaveState.End;
+			//GameManager.instance._waveState = GameManager.WaveState.End;
+			SceneManager.LoadScene("Dead");
         }
     }
 

@@ -2059,6 +2059,7 @@ MonoBehaviour:
   isDoneWithLastWave: 0
   playerScript: {fileID: 2012494245}
   startingWave: 8
+  startingWaveState: 1
   waveCountUI: {fileID: 1266831905}
   completedMessageUI: {fileID: 76721022}
   completedMessagePanel: {fileID: 1024596386}
@@ -8332,7 +8333,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012494240}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fba99a7bba20d474ca0b6a1ec25943ef, type: 3}
   m_Name: 

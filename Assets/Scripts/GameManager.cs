@@ -19,7 +19,9 @@ public class GameManager : MonoBehaviour
 
 	public PlayerScript playerScript;
 
+	[Header("Wave setup")]
 	public Wave startingWave;
+	public WaveState startingWaveState;
 
 	private WaveState waveState;
 	public WaveState _waveState
@@ -69,19 +71,22 @@ public class GameManager : MonoBehaviour
 	{
 		DontDestroyOnLoad(gameObject);
 		instance = this;
-
-		OnWaveStateChanged += HandleWaveStateChanged;
-	}		
-
-	private void Start()
-	{
-		wave = startingWave;
-		_waveState = WaveState.Spawning;
 	}
 
-	private void Update()
+	private void OnEnable()
 	{
-		
+		OnWaveStateChanged += HandleWaveStateChanged;
+	}
+
+	private void OnDisable()
+	{
+		OnWaveStateChanged -= HandleWaveStateChanged;
+	}
+
+	void Start()
+	{
+		wave = startingWave;
+		_waveState = startingWaveState;
 	}
 
 	private void HandleWaveStateChanged(WaveState newState)
@@ -93,9 +98,12 @@ public class GameManager : MonoBehaviour
 				WaveWaiting();
 				break;
 			case WaveState.Spawning:
-				completedMessagePanel.SetActive(false);
-				waveCountUI.text = "Wave: " + wave.ToString().Substring(4);
+				if(completedMessagePanel.activeSelf)
+				{
+					completedMessagePanel.SetActive(false);
+				}
 				enemySpawner.WaveStateSpawn(wave);
+				waveCountUI.text = "Wave: " + wave.ToString().Substring(4);
 				break;
 			case WaveState.Completed:
 				if(isDoneWithLastWave)
@@ -118,7 +126,6 @@ public class GameManager : MonoBehaviour
 
 	public void WaveCompleted()
 	{
-		//StartCoroutine(WaitToChangeState(WaveState.Waiting));
 		completedMessageUI.text = "You completed wave " + (Int32.Parse(wave.ToString().Substring(4)) - 1) + " in " + enemySpawner.timeSinceWaveStarted + "s time! " + randomCompleteMessage[Random.Range(0, randomCompleteMessage.Count)] + "\n\nReady for another wave? \r\nWave in: ";
 		completedMessagePanel.SetActive(true);
 		if(playerScript.playerLives < 3)
@@ -156,6 +163,4 @@ public class GameManager : MonoBehaviour
 	{
 		SceneManager.LoadScene("End");
 	}
-
-	
 }

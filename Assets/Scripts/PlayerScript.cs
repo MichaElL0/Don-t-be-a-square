@@ -28,7 +28,6 @@ public class PlayerScript : MonoBehaviour
 
 		if (playerLives <= 0)
         {
-			//GameManager.instance._waveState = GameManager.WaveState.End;
 			SceneManager.LoadScene("Dead");
         }
     }

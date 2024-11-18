@@ -5,7 +5,7 @@ using UnityEngine;
 using EZCameraShake;
 using Random = UnityEngine.Random;
 using static UnityEngine.EventSystems.EventTrigger;
-using UnityEditor.ShaderGraph.Internal;
+//using UnityEditor.ShaderGraph.Internal;
 
 public class EnemyClass : MonoBehaviour
 {

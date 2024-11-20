@@ -2058,7 +2058,7 @@ MonoBehaviour:
   wave: 0
   isDoneWithLastWave: 0
   playerScript: {fileID: 2012494245}
-  startingWave: 8
+  startingWave: 2
   startingWaveState: 1
   waveCountUI: {fileID: 1266831905}
   completedMessageUI: {fileID: 76721022}

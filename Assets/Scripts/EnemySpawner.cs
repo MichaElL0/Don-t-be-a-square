@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 	private int maxEnemiesForWave;
 	private int enemiesSpawned = 0;
 	[HideInInspector] public float timeSinceWaveStarted = 0;
-	bool killedAllEnemies = false;
+	//bool killedAllEnemies = false;
 
 	[Header("Wave stats")]
 	[SerializeField] float wave1SpawnTime;
@@ -55,15 +55,15 @@ public class EnemySpawner : MonoBehaviour
 
 	IEnumerator SpawnEnemyWave(int _enemyType, bool _isFinalWave, float _waitTime, GameManager.Wave nextWave)
 	{
-		killedAllEnemies = false;
 		maxEnemiesForWave = (int)GameManager.instance.wave;
-		for (int i = 0; i < maxEnemiesForWave; i++)
+		print(maxEnemiesForWave);
+		for (int i = 1; i <= maxEnemiesForWave; i++)
 		{
 			yield return new WaitForSeconds(_waitTime);
 			SpawnEnemy(_enemyType, _isFinalWave);
 		}
 
-		while (enemiesSpawnedList.Count > 0)
+		while (enemiesSpawnedList.Count >= 1)
 		{
 			yield return new WaitForSeconds(1);
 			Debug.Log("Spawning... Time since wave started: " + timeSinceWaveStarted);
@@ -71,7 +71,6 @@ public class EnemySpawner : MonoBehaviour
 		}
 		GameManager.instance.wave = nextWave;
 		GameManager.instance._waveState = GameManager.WaveState.Completed;
-		killedAllEnemies = true;
 		enemiesSpawned = 0;
 		enemiesKilled = 0;
 		timeSinceWaveStarted = 0;
